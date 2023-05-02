@@ -7,6 +7,6 @@ class Formatter(object):
         self.nvim = nvim
 
     @pynvim.function('SQLFluffFormat', sync=True)
-    def sqlfluff_format(self):
+    def sqlfluff_format():
         sql = "\n".join(self.nvim.current.buffer)
         self.nvim.current.buffer[:] = fix(sql, 'postgres', None, None, None, True).split('\n')
